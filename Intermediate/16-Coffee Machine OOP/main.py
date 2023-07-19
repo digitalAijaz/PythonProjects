@@ -1,2 +1,26 @@
-#print message of Coffee Machine Project in OOP
-print("Welcome to the Coffee Machine Project in OOP!")
+from menu import Menu, MenuItem
+from coffee_maker import CoffeeMaker
+from money_machine import MoneyMachine
+
+money_machine = MoneyMachine()
+coffee_maker = CoffeeMaker()
+
+io_on = True
+
+coffee_maker.report()
+money_machine.report()
+
+while io_on:
+    options = Menu().get_items()
+    choice = input(f"What would you like? ({options}): ")
+    if choice == "off":
+        io_on = False
+    elif choice == "report":
+        coffee_maker.report()
+        money_machine.report()
+    else:
+        drink = Menu().find_drink(choice)
+        if coffee_maker.is_resource_sufficient(drink) and money_machine.make_payment(drink.cost):
+            coffee_maker.make_coffee(drink)
+    
+
