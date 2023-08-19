@@ -3,14 +3,14 @@ import math
 
 # ---------------------------- CONSTANTS ------------------------------- #
 PINK = "#e2979c"
-RED = "#e7305b"
-GREEN = "#9bdeac"
+RED = "#79155B"
+GREEN = "#17594A"
 YELLOW = "#f7f5dd"
 PURPLE = "#79155B"
 FONT_NAME = "Courier"
-WORK_MIN = 25
-SHORT_BREAK_MIN = 5
-LONG_BREAK_MIN = 20
+WORK_MIN = 1
+SHORT_BREAK_MIN = 1
+LONG_BREAK_MIN = 1
 reps = 0
 timer = None
 
@@ -36,11 +36,11 @@ def start_timer():
     reps += 1
     if reps % 8 == 0:
         count_down(long_break_sec)
-        title_label.config(text="Break", fg=RED)
+        title_label.config(text="Break", fg=PINK)
 
     elif reps % 2 == 0:
         count_down(short_break_sec)
-        title_label.config(text="Break", fg=PINK)
+        title_label.config(text="Break", fg=RED)
     else:
         count_down(work_sec)
         title_label.config(text="Work", fg=GREEN)
@@ -78,28 +78,30 @@ window.config(padx=100, pady=50, bg=YELLOW)
 # Label
 title_label = Label(text="Timer", fg=GREEN, bg=YELLOW, font=(FONT_NAME, 50, "bold"))
 title_label.grid(column=1, row=0)
+title_label.config(padx=10, pady=10)
 
-check_marks = Label(fg=GREEN, bg=YELLOW)
-check_marks.grid(column=1, row=3)
+check_marks = Label(fg=GREEN, bg=YELLOW, font=(FONT_NAME, 20, "bold"))
+check_marks.grid(column=1, row=2)
+check_marks.config(padx=10, pady=10)
 
 # Buttons
 start_button = Button(text="Start", highlightthickness=0, width=6, font=(FONT_NAME, 15, "bold"), fg=PURPLE)
-start_button.grid(column=0, row=2)
+start_button.grid(column=0, row=3)
 start_button.config(command=start_timer)
-start_button.config(padx=10, pady=10)
+#start_button.config(padx=10, pady=10)
 
 reset_button = Button(text="Reset", highlightthickness=0, width=6, font=(FONT_NAME, 15, "bold"), fg=PURPLE)
-reset_button.grid(column=2, row=2)
+reset_button.grid(column=2, row=3)
 reset_button.config(command=reset_timer)
-reset_button.config(padx=10, pady=10)
+#reset_button.config(padx=10, pady=10)
 
 
 # Canvas
-canvas = Canvas(width=200, height=224, bg=YELLOW, highlightthickness=0)
-photo = PhotoImage(file="tomato.png")
-#photo = PhotoImage(file="timer.png")
-canvas.create_image(100, 112, image=photo)
-timer_text = canvas.create_text(100, 130, text="00:00", fill="white", font=(FONT_NAME, 35, "bold"))
+canvas = Canvas(width=200, height=98, bg=YELLOW, highlightthickness=0)
+#photo = PhotoImage(file="tomato.png")
+photo = PhotoImage(file="timer.png")
+canvas.create_image(100, 49, image=photo)
+timer_text = canvas.create_text(100, 49, text="00:00", fill="white", font=(FONT_NAME, 35, "bold"))
 canvas.grid(column=1, row=1)
 
 window.mainloop()
