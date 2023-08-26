@@ -1,23 +1,18 @@
+import pandas
 
-with open("file1.txt") as file1:
-    file1_list = file1.read().splitlines()
-    #print (file1_list)
+data = pandas.read_csv("nato_phonetic_alphabet.csv")
+#TODO 1. Create a dictionary in this format:
+phonetic_dict = {row.letter: row.code for (index, row) in data.iterrows()}
+print(phonetic_dict)
 
-with open("file2.txt") as file2:
-    file2_list = file2.read().splitlines()
-    #print (file2_list)
-
-result = [int(num) for num in file1_list if num in file2_list]
-#
-# # Write your code above 👆
-#
-print(result)
-
-names = ["Alex", "Beth", "Caroline", "Dave", "Eleanor", "Freddie"]
-import random
-student_scores = {student:random.randint(1,100) for student in names}
-
-#passed_students = {student:score for (student,score) in student_scores.items() if score >= 60}
-passed_students = {student: score for (student,score) in student_scores.items() if score>35}
-print(passed_students)
+#TODO 2. Create a list of the phonetic code words from a word that the user inputs.
+while True:
+    word = input("Enter a word: ").upper()
+    try:
+        output_list = [phonetic_dict[letter] for letter in word]
+    except KeyError:
+        print("Sorry, only letters in the alphabet please.")
+    else:
+        print(output_list)
+        break
 
