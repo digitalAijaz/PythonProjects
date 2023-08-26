@@ -1,10 +1,18 @@
 {
     "IISc": {
-        "email": "elon@twitter.com",
-        "password": "wise4(a8b5"
+        "email": "aijaz@iisc.ac.in",
+        "password": "Aijaz"
     },
     "cpdm": {
-        "email": "elon@twitter.com",
+        "email": "aijaz@iisc.ac.in",
         "password": "z6)e8xur"
+    },
+    "Twitter": {
+        "email": "aijaz@iisc.ac.in",
+        "password": "#ki93mykqi"
+    },
+    "LinkedIn": {
+        "email": "aijaz@iisc.ac.in",
+        "password": "gfct$7"
     }
 }

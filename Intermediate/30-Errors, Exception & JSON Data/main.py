@@ -68,6 +68,28 @@ def save_password():
             entry_password.delete(0, END)
 
 
+# ---------------------------- SEARCH PASSWORD ------------------------------- #
+def search_password():
+    website = entry_website.get()
+    try:
+        with open("data.json", "r") as data_file:
+            # Reading old data
+            data = json.load(data_file)
+
+    except FileNotFoundError:
+        messagebox.showinfo(title="Error", message="No Data File Found.")
+
+    else:
+        if website in data:
+            email = data[website]["email"]
+            password = data[website]["password"]
+            messagebox.showinfo(title=f"{website}", message=f"Email: {email}\nPassword: {password}")
+
+        else:
+            messagebox.showinfo(title="Error", message=f"No details for {website} exists.")
+
+
+
 # ---------------------------- UI SETUP ------------------------------- #.3
 
 bg_color = "bisque"
@@ -102,12 +124,12 @@ label_password.config(bg=bg_color, fg=fg_text)
 label_password.config(padx=2, pady=2)
 label_password.grid(column=0, row=3)
 
-entry_website = Entry(width=52)
-entry_website.grid(column=1, row=1, columnspan=2)
+entry_website = Entry(width=32)
+entry_website.grid(column=1, row=1, columnspan=1)
 entry_website.focus()
 
 entry_email = Entry(width=52)
-entry_email.insert(0, "elon@twitter.com")
+entry_email.insert(0, "aijaz@iisc.ac.in")
 # entry_email.config(fg="dark gray")
 entry_email.grid(column=1, row=2, columnspan=2)
 
@@ -115,13 +137,19 @@ entry_password = Entry(width=32)
 entry_password.grid(column=1, row=3, columnspan=1)
 
 # Buttons
+
+button_search = Button(text="Search", width=16, command=search_password)
+button_search.config(bg="light green", fg="dark blue")
+button_search.config(padx=0, pady=0)
+button_search.grid(column=2, row=1)
+
 button_gen_password = Button(text="Generate Password", width=16, command=generate_password)
 button_gen_password.config(bg="hot pink", fg="dark blue")
 button_gen_password.config(padx=0, pady=0)
 button_gen_password.grid(column=2, row=3)
 
 button_add = Button(text="Add", width=44, command=save_password)
-button_add.config(bg="turquoise", fg="dark blue")
+button_add.config(bg="black", fg="yellow")
 button_add.config(padx=2, pady=2)
 button_add.grid(column=1, row=4, columnspan=2)
 
