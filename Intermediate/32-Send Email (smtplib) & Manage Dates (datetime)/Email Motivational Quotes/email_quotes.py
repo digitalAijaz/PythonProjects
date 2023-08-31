@@ -1,8 +1,8 @@
 import smtplib
 import datetime as dt
 import random
-my_email = "xyz@gmail.com"
-password = "gfgsrereergergerggr"
+my_email = "dhdfghfhdg@gmail.com"
+password = "dhfhdhdfgh"
 
 day = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 

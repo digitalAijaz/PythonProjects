@@ -18,8 +18,9 @@ if today_tuple in birthdays_dict:
         contents = contents.replace("[NAME]", birthday_person["name"])
 
     import smtplib
-    my_email = "gregf@gmail.com"
-    password = "gwvqgrwthtewthwjjt"
+
+    my_email = "dhhdffgh.com"
+    password = "grqfqgqwrewghwgh"
 
     with smtplib.SMTP("smtp.gmail.com", 587) as connection:
         connection.starttls()
