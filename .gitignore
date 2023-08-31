@@ -6,6 +6,10 @@ _Git Commands/
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 
+Intermediate/32-Send Email (smtplib) & Manage Dates (datetime)/main.py
+Intermediate/32-Send Email (smtplib) & Manage Dates (datetime)/Email Motivational Quotes/email_quotes.py
+
+
 # User-specific stuff
 .idea/**/workspace.xml
 .idea/**/tasks.xml
